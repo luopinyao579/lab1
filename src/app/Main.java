@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
-    private  static final XMLHelper helper = new XMLHelper();
+    private  static XMLHelper helper = new XMLHelper();
     Obfuscator obfuscator = new Obfuscator();
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
