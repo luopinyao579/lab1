@@ -1,6 +1,5 @@
 package app;
 
-
 import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -8,7 +7,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
-    private  static  XMLHelper helper = new XMLHelper();
+    private  static final XMLHelper helper = new XMLHelper();
     Obfuscator obfuscator = new Obfuscator();
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -19,14 +18,8 @@ public class Main {
         System.out.println("Enter mode (obfuscate or deobfuscate): ");
         String mode = in.nextLine();
         try {
-            helper.XMLProccesor(new File(input), new File(output), mode.equals("obfuscate"));
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (TransformerException e) {
+            XMLHelper.XMLProccesor(new File(input), new File(output), mode.equals("obfuscate"));
+        } catch (ParserConfigurationException | IOException | SAXException | TransformerException e) {
             e.printStackTrace();
         }
     }
