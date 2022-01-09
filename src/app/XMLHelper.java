@@ -25,9 +25,9 @@ public class XMLHelper {
         Document doc = docBldr.parse(trgt);
         Element rootElement = doc.getDocumentElement();
         if (obfuscate)
-            XMLEditorM(rootElement, Obfuscator::obf);
+            XMLEditorM(rootElement, Obfuscator::obfuscate);
         else
-            XMLEditorM(rootElement, Obfuscator::revert);
+            XMLEditorM(rootElement, Obfuscator::unobfuscate);
         TransformerFactory trnsfrmFctr = TransformerFactory.newInstance();
         Transformer transf = trnsfrmFctr.newTransformer();
         DOMSource src = new DOMSource(doc);
