@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class XMLHelper {
-    public static void XMLProccesor(File input, File out, boolean obfuscate) throws ParserConfigurationException, IOException, SAXException, TransformerException {
+    public static void XMLProccesor(File input, File output, boolean obfuscate) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         InputStream trgt = new ByteArrayInputStream(FileUtils.readFileToByteArray(input));
         DocumentBuilder docBldr = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document doc = docBldr.parse(trgt);
@@ -31,7 +31,7 @@ public class XMLHelper {
         TransformerFactory trnsfrmFctr = TransformerFactory.newInstance();
         Transformer transf = trnsfrmFctr.newTransformer();
         DOMSource src = new DOMSource(doc);
-        StreamResult res = new StreamResult(out);
+        StreamResult res = new StreamResult(output);
         transf.transform(src, res);
     }
 
