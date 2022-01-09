@@ -8,7 +8,6 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
-
     private  static  XMLHelper helper = new XMLHelper();
     Obfuscator obfuscator = new Obfuscator();
     public static void main(String[] args) {
