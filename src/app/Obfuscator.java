@@ -1,25 +1,25 @@
 package app;
 
 public class Obfuscator {
-    private static String inpString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    private static String outString = "kiMd6GvVlzUPwjg9734pSXbEqC5ZFOQxHyfIN8Bn0LoTA2rKaRhsmJtce1WYDu";
+    private static String source = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    private static String target = "kiMd6GvVlzUPwjg9734pSXbEqC5ZFOQxHyfIN8Bn0LoTA2rKaRhsmJtce1WYDu";
 
-    public static String obf(String s) {
+    public static String obfuscate(String s) {
         char[] res = new char[s.length()];
         for (int i = 0; i < s.length(); i++) {
             char chr = s.charAt(i);
-            int ind = inpString.indexOf(chr);
-            res[i] = ind != -1 ? outString.charAt(ind) : chr;
+            int ind = source.indexOf(chr);
+            res[i] = ind != -1 ? target.charAt(ind) : chr;
         }
         return new String(res);
     }
 
-    public static String revert(String s) {
+    public static String unobfuscate(String s) {
         char[] res = new char[s.length()];
         for (int i = 0; i < s.length(); i++) {
             char chr = s.charAt(i);
-            int ind = outString.indexOf(chr);
-            res[i] = ind != -1 ? inpString.charAt(ind) : chr;
+            int ind = target.indexOf(chr);
+            res[i] = ind != -1 ? source.charAt(ind) : chr;
         }
         return new String(res);
     }
